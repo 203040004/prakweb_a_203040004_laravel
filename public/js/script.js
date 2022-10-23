@@ -1,0 +1,1 @@
+alert("kamu nanya?rambut aku model apa?");
