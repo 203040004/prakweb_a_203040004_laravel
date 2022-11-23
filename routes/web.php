@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardPostController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 /*
@@ -60,4 +61,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function() {
     return view('dashboard.index');
 })->middleware('auth');
+
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])
+    ->middleware('auth');
+    
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
